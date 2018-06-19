@@ -1,23 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+import Menus from './components/Menus'
+
+const client = new ApolloClient({
+  uri: 'https://us1.prisma.sh/yihong-ed6b25/demo-server/dev'
+})
 
 export default class App extends React.Component<{}> {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.ts to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+    return <ApolloProvider client={client}>
+        <Menus />
+      </ApolloProvider>;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
