@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import Menus from './components/Menus'
@@ -9,8 +9,10 @@ const client = new ApolloClient({
 
 export default class App extends React.Component<{}> {
   render() {
-    return <ApolloProvider client={client}>
+    return (
+      <ApolloProvider client={client}>
         <Menus />
-      </ApolloProvider>;
+      </ApolloProvider>
+    )
   }
 }
