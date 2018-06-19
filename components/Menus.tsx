@@ -20,7 +20,16 @@ const menusQuery = gql`
 
 const Menu = props => {
   const { item } = props
-  return <Text key={item.shortName}>{item.name}</Text>
+  return (
+    <View style={{
+      flex: 1,
+      height: 50,
+      padding: 10,
+      justifyContent: 'center'
+    }}>
+      <Text key={item.shortName}>{item.name}</Text>
+    </View>
+  )
 }
 
 export default class Menus extends React.Component<{}> {
@@ -35,7 +44,6 @@ export default class Menus extends React.Component<{}> {
             if (error) {
               return <Text>{error.message}</Text>
             }
-
             return (
               <FlatList
                 data={data.menus}
@@ -54,7 +62,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center'
   }
 })

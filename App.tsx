@@ -1,6 +1,11 @@
 import * as React from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import {
+  Platform,
+  StatusBar,
+  SafeAreaView
+} from 'react-native'
 import Menus from './components/Menus'
 
 const client = new ApolloClient({
@@ -9,9 +14,12 @@ const client = new ApolloClient({
 
 export default class App extends React.Component<{}> {
   render() {
+    const paddingTop = Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
     return (
       <ApolloProvider client={client}>
-        <Menus />
+        <SafeAreaView style={{ paddingTop, flex: 1 }}>
+          <Menus />
+        </SafeAreaView>
       </ApolloProvider>
     )
   }
