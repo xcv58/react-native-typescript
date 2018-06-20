@@ -18,7 +18,7 @@ const menusQuery = gql`
   }
 `
 
-const Menu = props => {
+const Menu = (props: any) => {
   const { item } = props
   return (
     <View style={{
@@ -47,7 +47,7 @@ export default class Menus extends React.Component<{}> {
             return (
               <FlatList
                 data={data.menus}
-                keyExtractor={x => x.shortName}
+                keyExtractor={(x: { shortName: string }) => x.shortName}
                 renderItem={Menu}
               />
             )

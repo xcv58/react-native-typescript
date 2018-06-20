@@ -1,6 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0",
+    "name": "Test App",
+    "version": "0.0.1",
+    "slug": "your-app-slug",
+    "ios": {
+      "bundleIdentifier": "com.xcv58"
+    },
+    "android": {
+      "package": "com.xcv58"
+    },
+    "sdkVersion": "28.0.0",
     "packagerOpts": {
       "sourceExts": ["ts", "tsx"],
       "transformer": "node_modules/react-native-typescript-transformer/index.js"
