@@ -37,7 +37,7 @@ export default class Menus extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <Query query={menusQuery}>
-          {({ loading, error, data }) => {
+          {({ loading, error, data, refetch }) => {
             if (loading) {
               return <ActivityIndicator size="large" />
             }
@@ -46,6 +46,8 @@ export default class Menus extends React.Component<{}> {
             }
             return (
               <FlatList
+                refreshing={loading}
+                onRefresh={refetch}
                 data={data.menus}
                 keyExtractor={(x: { shortName: string }) => x.shortName}
                 renderItem={Menu}
