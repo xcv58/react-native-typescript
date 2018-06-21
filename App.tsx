@@ -7,6 +7,7 @@ import {
   SafeAreaView
 } from 'react-native'
 import Menus from './components/Menus'
+import Landing from './components/Landing'
 
 const client = new ApolloClient({
   uri: 'https://us1.prisma.sh/yihong-ed6b25/demo-server/dev'
@@ -18,7 +19,8 @@ export default class App extends React.Component<{}> {
     return (
       <ApolloProvider client={client}>
         <SafeAreaView style={{ paddingTop, flex: 1 }}>
-          <Menus />
+          {/* <Menus /> */}
+          <Landing />
         </SafeAreaView>
       </ApolloProvider>
     )
